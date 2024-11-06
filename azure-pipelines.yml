@@ -22,12 +22,14 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
+    SourceFolder: '$(agent.builddirectory)'
     Contents: '**/.war'
-    TargetFolder: '/home/vsts/work/1/s/webapp/target'
+    TargetFolder: 'webbapp/target/webapp.war'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
+
 
 
